@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: master
-        image: grafana/grafana:7.0.3
+        image: grafana/grafana:latest
         env:
         - name: JVM_ARGS
           value: "-Xms512m -Xmx512m"
