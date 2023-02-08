@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Deploying Jmeter Slave Pods') {
             steps {
-				sh 'cd `pwd`/kubernetes-init/config/; ls; i=1;while [ "$i" -le 2 ]; do  microk8s kubectl apply -f slave$i.yaml; i=$(( i + 1 )); done'
+				sh 'cd `pwd`/kubernetes-init/config/; ls; i=1;while [ "$i" -le 2 ]; do kubectl apply -f slave$i.yaml; i=$(( i + 1 )); done'
 				sh 'sleep 60;'
                 echo 'Started Jmeter Slave Pods'
             }
@@ -40,15 +40,15 @@ pipeline {
 		stage('Deploying JMeter Master and Start Test') {
             steps {
 				echo 'Starting Execution'
-                sh 'cd `pwd`/kubernetes-init/config/; microk8s kubectl apply -f master.yaml'
+                sh 'cd `pwd`/kubernetes-init/config/; kubectl apply -f master.yaml'
                 sh 'sleep 60;'
-				sh 'microk8s kubectl logs master -f'
+				sh 'kubectl logs master -f'
                 
             }
         }
         stage('Stopping Jmeter Pods') {
             steps {
-                sh 'cd `pwd`/kubernetes-init/config/; ls; microk8s kubectl delete -f .;'
+                sh 'cd `pwd`/kubernetes-init/config/; ls; kubectl delete -f .;'
                 echo 'Creating Pods for master & slave and Start execution'
             }
         }
