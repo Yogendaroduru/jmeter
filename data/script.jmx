@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="build-web-test-plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -96,12 +96,12 @@ without actual network activity. This helps debugging tests.</stringProp>
               </elementProp>
               <elementProp name="influxdbUrl" elementType="Argument">
                 <stringProp name="Argument.name">influxdbUrl</stringProp>
-                <stringProp name="Argument.value">http://influxdb:8086/write?db=jmeter</stringProp>
+                <stringProp name="Argument.value">http://192.168.49.2:30260/api/v2/write?org=primary&amp;bucket=jmeter</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="application" elementType="Argument">
                 <stringProp name="Argument.name">application</stringProp>
-                <stringProp name="Argument.value">testApp</stringProp>
+                <stringProp name="Argument.value">jmeter</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="measurement" elementType="Argument">
@@ -141,7 +141,12 @@ without actual network activity. This helps debugging tests.</stringProp>
               </elementProp>
               <elementProp name="influxDBPassword" elementType="Argument">
                 <stringProp name="Argument.name">influxDBPassword</stringProp>
-                <stringProp name="Argument.value">password123</stringProp>
+                <stringProp name="Argument.value">RCDIxB9IvQ</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="influxdbToken" elementType="Argument">
+                <stringProp name="Argument.name">influxdbToken</stringProp>
+                <stringProp name="Argument.value">UO4jMIfz084FaJG9kLz3SxDhrwvnPXxQqB-Ab9b5dxayYMQHspYnNAjOxcarpaODsiVFPqHdyNJxGBpjF3IpYw==</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="retentionPolicy" elementType="Argument">
